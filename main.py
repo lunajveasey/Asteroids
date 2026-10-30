@@ -1,3 +1,4 @@
+from shot import Shot
 from pygame.sprite import Group
 from typing import Any
 from pygame.surface import Surface
@@ -24,10 +25,12 @@ def main():
     updatable: Group[Any] = pygame.sprite.Group()
     drawable: Group[Any] = pygame.sprite.Group()
     asteroids: Group[Any] = pygame.sprite.Group()
+    shots: Group[Any] = pygame.sprite.Group()
 
     Player.containers = (updatable, drawable)
     Asteroid.containers = (asteroids, updatable, drawable)
     AsteroidField.containers = (updatable)
+    Shot.containers = (shots, drawable, updatable)
 
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     asteroid_field = AsteroidField()
